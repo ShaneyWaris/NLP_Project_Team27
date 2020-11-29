@@ -120,7 +120,6 @@ torchaudio==0.7.0
 torchvision==0.8.1
 tornado==6.1
 tqdm==4.51.0
-traitlets==5.0.5
 transformers==3.5.1
 typing-extensions==3.7.4.3
 tzlocal==2.1

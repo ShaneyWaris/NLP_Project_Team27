@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>NLP Project </title>
+</head>
+<body>
+    <header class="text-gray-700 body-font" style="background-color: #3FADA8">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg> -->
+            <span class="ml-3 text-xl" style="color: white;">NLP Team 27 Project</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center" style="color: white;">
+            <a class="mr-5 hover:text-gray-900" href="/">Home</a>
+            <a class="mr-5 hover:text-gray-900" href="/members">Members</a>
+            <a class="mr-5 hover:text-gray-900" href="/about">About</a>
+          </nav>
+        </div>
+      </header>
+
+    <section class="ml-20 mr-20 text-gray-700 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">OUR HARDWORKING TEAM &#x1F60E;</h1>
+{#      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Anything one liner.</p>#}
+    </div>
+    <div class="flex flex-wrap -m-4">
+      <div class="p-12 lg:w-1/4 md:w-1/2">
+        <div class="h-full flex flex-col items-center text-center">
+          <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4" src="{{ url_for('static', filename="meet.jpeg")}}">
+          <div class="w-full">
+            <h2 class="title-font font-medium text-lg text-gray-900">Meet Maheshwari</h2>
+            <h3 class="text-gray-500 mb-3">MTech First Year</h3>
+          </div>
+        </div>
+      </div>
+      <div class="p-12 lg:w-1/4 md:w-1/2">
+        <div class="h-full flex flex-col items-center text-center">
+          <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4" src="{{ url_for('static', filename="priya.jpg")}}">
+          <div class="w-full">
+            <h2 class="title-font font-medium text-lg text-gray-900">Priya Mehta</h2>
+            <h3 class="text-gray-500 mb-3">MTech First Year</h3>
+          </div>
+        </div>
+      </div>
+      <div class="p-12 lg:w-1/4 md:w-1/2">
+        <div class="h-full flex flex-col items-center text-center">
+          <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4" src="{{ url_for('static', filename="shaney.jpg")}}">
+          <div class="w-full">
+            <h2 class="title-font font-medium text-lg text-gray-900">Shaney Waris</h2>
+            <h3 class="text-gray-500 mb-3">BTech Third Year</h3>
+          </div>
+        </div>
+      </div>
+      <div class="p-12 lg:w-1/4 md:w-1/2">
+        <div class="h-full flex flex-col items-center text-center">
+          <img alt="team" class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4" src="{{ url_for('static', filename="newSriza.jpg")}}">
+          <div class="w-full">
+            <h2 class="title-font font-medium text-lg text-gray-900">Sriza Sen</h2>
+            <h3 class="text-gray-500 mb-3">MTech First Year</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

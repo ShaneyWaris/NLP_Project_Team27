@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header class="text-gray-700 body-font" style="background-color: #3FADA8">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg> -->
+            <span class="ml-3 text-xl" style="color: white;">NLP Team 27 Project</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center" style="color: white;">
+            <a class="mr-5 hover:text-gray-900" href="/">Home</a>
+            <a class="mr-5 hover:text-gray-900" href="/members">Members</a>
+            <a class="mr-5 hover:text-gray-900" href="/about">About</a>
+          </nav>
+        </div>
+      </header>
+      <!-- Stance detection -->
+      <form action="/" method="post" role="form">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Stance Detection in Online Media Data</h1>
+{#            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Put the description here.</p>#}
+          </div>
+          <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <div class="flex flex-wrap -m-2">
+              <div class="p-2 w-full">
+                <div class="relative">
+                  <label for="name" class="leading-7 text-sm text-gray-600">Headline</label>
+                  <input type="text" id="headline" name="headline" class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+              <div class="p-2 w-full">
+                <div class="relative">
+                  <label for="message" class="leading-7 text-sm text-gray-600">Body</label>
+                  <textarea id="body" name="body" class="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                </div>
+              </div>
+              <div class="p-2 w-full">
+                <button type="submit" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" style="background-color: #3FADA8;">DETECT</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    {% if b %}
+    <section class="text-gray-700 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Results</h1> <br>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">We have trained 4 models with 4 different set of features and then comapred their results.</p>
+        </div>
+        <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+          <table class="table-auto w-full text-left whitespace-no-wrap">
+            <thead>
+              <tr>
+                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tl rounded-bl"><b>Model</b></th>
+                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200"><b>Features</b></th>
+                <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200"><b>Stance</b></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="color: blue">
+                <td class="px-4 py-3">Random Forest</td>
+                <td class="px-4 py-3">LaBSE</td>
+                <td class="px-4 py-3">{{ l[0][1] }}</td>
+              </tr>
+              <tr style="color: blue">
+                <td class="border-t-2 border-gray-200 px-4 py-3">Random Forest</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">LaBSE + Other features</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">{{ l[1][1] }}</td>
+              </tr>
+              <tr style="color: blue">
+                <td class="border-t-2 border-gray-200 px-4 py-3">Random Forest</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">Universal Encoder</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">{{ l[2][1] }}</td>
+              </tr>
+              <tr style="color: blue">
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Random Forest</td>
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Universal Encoder + Other Features</td>
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">{{ l[3][1] }}</td>
+              </tr>
+
+            <tr style="color: crimson">
+                <td class="px-4 py-3">XGBoost</td>
+                <td class="px-4 py-3">LaBSE</td>
+                <td class="px-4 py-3">{{ l[4][1] }}</td>
+              </tr>
+              <tr style="color: crimson">
+                <td class="border-t-2 border-gray-200 px-4 py-3">XGBoost</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">LaBSE + Other features</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">{{ l[5][1] }}</td>
+              </tr>
+              <tr style="color: crimson">
+                <td class="border-t-2 border-gray-200 px-4 py-3">XGBoost</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">Universal Encoder</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">{{ l[6][1] }}</td>
+              </tr>
+              <tr style="color: crimson">
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">XGBoost</td>
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Universal Encoder + Other Features</td>
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">{{ l[7][1] }}</td>
+              </tr>
+
+            <tr style="color: darkorchid">
+                <td class="px-4 py-3">MLP</td>
+                <td class="px-4 py-3">LaBSE</td>
+                <td class="px-4 py-3">{{ l[8][1] }}</td>
+              </tr>
+              <tr style="color: darkorchid">
+                <td class="border-t-2 border-gray-200 px-4 py-3">MLP</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">LaBSE + Other features</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">{{ l[9][1] }}</td>
+              </tr>
+              <tr style="color: darkorchid">
+                <td class="border-t-2 border-gray-200 px-4 py-3">MLP</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">Universal Encoder</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">{{ l[10][1] }}</td>
+              </tr>
+              <tr style="color: darkorchid">
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">MLP</td>
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Universal Encoder + Other Features</td>
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">{{ l[11][1] }}</td>
+              </tr>
+
+            <tr style="color: darkorange">
+                <td class="px-4 py-3">SVM</td>
+                <td class="px-4 py-3">LaBSE</td>
+                <td class="px-4 py-3">{{ l[12][1] }}</td>
+              </tr>
+              <tr style="color: darkorange">
+                <td class="border-t-2 border-gray-200 px-4 py-3">SVM</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">LaBSE + Other features</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">{{ l[13][1] }}</td>
+              </tr>
+              <tr style="color: darkorange">
+                <td class="border-t-2 border-gray-200 px-4 py-3">SVM</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">Universal Encoder</td>
+                <td class="border-t-2 border-gray-200 px-4 py-3">{{ l[14][1] }}</td>
+              </tr>
+              <tr style="color: darkorange">
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">SVM</td>
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Universal Encoder + Other Features</td>
+                <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">{{ l[15][1] }}</td>
+              </tr>
+            </tbody>
+          </table>
+            <br>
+            <p style="text-align: center"><b>Note:</b> Here Others features are the features other than LaBSE and Universal Encoder. You can refer our report for the same.</p>
+        </div>
+      </div>
+</section>
+{% endif %}
+
+
+</body>
+</html>
